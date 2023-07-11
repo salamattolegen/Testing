@@ -1,0 +1,59 @@
+driver.findElement(By.id("first_8"));
+driver.findElement(By.name("first_8"));
+driver.findElement(By.className("first_8"));
+driver.findElement(By.linkText("first_8"));             --> can only be used for a tags
+driver.findElement(By.partialLinkText("first_8"));      --> can only be used for a tags
+driver.findElement(By.tagName("first_8"));
+
+
+CSS selector
+tagName[attribute='value']
+
+multiple attributes:
+button[type='button'][onclick='showInput();']
+
+using child method:
+div[id='user-message'] > label[style = 'margin-top: 10px;']
+     (parent)              (child)
+
+> sign used to indicate parent.
++ sign used to locate the next child, in case there are more children
+
+div[id='user-message'] > label + span
+->gives span element right after label element
+
+div[id='user-message'] > span
+-> gives any span tag
+
+[id='get-input'] input
+-> gives the first ever input child of the
+    element with id='get-input' from all children and grand children
+
+form[id='get-input'] input[class='form-control']
+-> you can write more specific
+
+ul[class='nav navbar-nav']>:nth-child(3)
+-> gives the 3rd child of the first element (better than writing [class='nav navbar-nav'] > li+li+li )
+
+ul[class='nav navbar-nav']>:first-child
+-> gives the first one of the immediate children
+
+ul[class='nav navbar-nav'] >:last-child
+
+ul[class='nav navbar-nav'] >:nth-last-child(2) locates the 2nd from the last
+
+ul[class='nav navbar-nav']>* shows children under the parent
+
+Symbols:
+> search among the immediate children
+space - shows everything under a parent
++ finds the first sibling
+~ searches among all siblings (not used much)
+
+Starts with - Ends with - Contains
+
+^ means starts with
+* means contains
+$ means ends with
+
+input[id^='u_'][id*='_b_']
