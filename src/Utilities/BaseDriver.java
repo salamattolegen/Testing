@@ -18,10 +18,6 @@ public class BaseDriver {
 
         driver.manage().window().maximize(); // fits the browser to the screen
 
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));driver = new ChromeDriver();
-
-        driver.manage().window().maximize(); // fits the browser to the screen
-
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         //waits for 15 sec for the page to be loaded
         //if it takes more than 15 secs to load the page, it throws an exception.

@@ -1,0 +1,63 @@
+XPATH
+
+PROS
+-> can search both forward and backward (CSS selector can only search forward).
+-> can search with displayed text.
+-> can locate by index
+
+CONS
+-> works slower than other methods
+
+/html/body/div/h1   -> Absolute XPATH
+
+tagName[attribute='value'] -> CSS selector
+
+**************
+* For XPATH: *
+**************
+//tagName[@attribute='value'] -> Relative XPATH
+
+So there are two types of XPATH - absolute and relative. We use only the latter, the former is the worst method.
+
+//tagName[text()='text'] -> to locate a text
+
+// input[starts-with(@id,'syx_e')] -> element that has an id that starts with "syx_e"
+
+// input[contains(@id,'tzn')] -> element that has an id that contains "tzn"
+
+//div[contains(text(),'how you use XYZ')] -> element that has a visible text and contains "how you use XYZ"
+
+//input[@type='hidden' and @name='syx_tzn'] -> element that has both of these attributes
+//input[@type='hidden' or @name='syx_tzn'] -> element that has either type or name attribute
+
+tagName[attribute='value']> -> CSS child
+//div[@id='user-name']/input[@type='text'] -> single slash serves for searching among the immediate children
+//div[@id='user-name']//input[@type='text'] -> double slash serves for searching among the entire family(children and grandchildren)
+
+//ul[@class='nav navbar-nav']//li/following-sibling::li[@class='dropdown'] -> first sibling
+        (ul is parent)     (li is 1st child) (following sibling)
+
+//ul[@class='nav navbar-nav']//li/following::li[@class='dropdown'] -> li elements among all siblings after the first child
+
+**************************************************
+*How to locate a parent by starting from a child:*
+**************************************************
+
+//button[text()='Show Message']/.. -> a slash and the double dot locates the parent of that child button
+//button[text()='Show Message']/parent::form -> slash, parent keyword and the tag name of the parent locates the parent as well.
+//button[text()='Show Message']/../.. -> locates the grandparent
+//button[text()='Show Message']/parent::form/parent::div -> also locates the grandparent
+
+//button[@class='btn btn-primary'])[2] -> locates the 2nd of button elements with same locator
+
+Priority Order of the locators:
+1. ID
+2. name
+3. class
+4. linkText (for a tag)
+5. partialLinkText (for a tag)
+6. tagName
+7. CSS selector
+8. XPATH
+
+
